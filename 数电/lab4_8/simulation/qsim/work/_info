@@ -1,0 +1,157 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\shudianshiyan\lab4_8\simulation\qsim
+vcnt24_8
+Z1 !s100 <^^SThRbJ1XXb6TOCACNg1
+Z2 IC>L0V`ZfQ_FUKQ80^BJBc3
+Z3 VW0PKSNfGS4h18;QNXPIQd0
+Z4 dD:\shudianshiyan\lab4_8\simulation\qsim
+Z5 w1701917241
+Z6 8lab4_8.vo
+Z7 Flab4_8.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|lab4_8.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1701917242.264000
+Z12 !s107 lab4_8.vo|
+!s101 -O0
+vcnt24_8_vlg_check_tst
+!i10b 1
+Z13 !s100 @B9bQo7^PgDkU?N6Ic`1S3
+Z14 ISN^?z3MRRYf0Ibh36fn`j3
+Z15 VXHV:HeO[5zgkX7?HHf6j[2
+R4
+Z16 w1701917240
+Z17 8Waveform.vwf.vt
+Z18 FWaveform.vwf.vt
+L0 57
+R8
+r1
+!s85 0
+31
+Z19 !s108 1701917242.334000
+Z20 !s107 Waveform.vwf.vt|
+Z21 !s90 -work|work|Waveform.vwf.vt|
+!s101 -O0
+R10
+vcnt24_8_vlg_sample_tst
+!i10b 1
+Z22 !s100 X7aXPdAcA[:g[d[JNMa9>3
+Z23 Igi5TZ>^A1NYAAWhl<C2iD1
+Z24 VWZcYEKSA_em^N6P8O2a>;1
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vcnt24_8_vlg_vec_tst
+!i10b 1
+!s100 [HHYKBe3fkIH9jKz7DUEc2
+Ih6DmazznalHDLS5^7[GWB1
+Z25 V69c_^`5BlKhFdIz?i?^E]3
+R4
+R16
+R17
+R18
+Z26 L0 312
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vcode_select_8
+Z27 IQmYc@ldk[5Z;G:C`95ddj2
+Z28 Vo0gVKHXJC@BVj8XfHa:=z0
+R4
+Z29 w1701914305
+R6
+R7
+L0 31
+R8
+r1
+31
+R10
+Z30 !s100 _nVcoQ7<6FRg[HFoTXUhH0
+Z31 !s108 1701914307.709000
+R12
+R9
+!i10b 1
+!s85 0
+!s101 -O0
+vcode_select_8_vlg_check_tst
+Z32 IKX;oR;?<7LVS?PWmEUfA41
+Z33 V=@D;HORHJTedo8Qa1M=Ri1
+R4
+Z34 w1701914304
+R17
+R18
+L0 69
+R8
+r1
+31
+Z35 !s108 1701914307.834000
+Z36 !s107 Waveform.vwf.vt|
+R21
+R10
+Z37 !s100 ao]K[7zf[dIc607gBzC3A1
+!i10b 1
+!s85 0
+!s101 -O0
+vcode_select_8_vlg_sample_tst
+Z38 IhaJM3A6J37L1i^Q48SkkZ3
+Z39 VWW[TTUFcaU8Um?<0;YG4?2
+R4
+R34
+R17
+R18
+L0 29
+R8
+r1
+31
+R35
+R36
+R21
+R10
+Z40 !s100 @6D]LK4I37@:J[7Udcj6M1
+!i10b 1
+!s85 0
+!s101 -O0
+vcode_select_8_vlg_vec_tst
+Z41 IF]fF9`U^k:TJ?WcZ7Fl]E2
+Z42 Vfog6X6YfUkJ=YRW>VVk7U1
+R4
+R34
+R17
+R18
+Z43 L0 217
+R8
+r1
+31
+R35
+R36
+R21
+R10
+Z44 !s100 [@3PEm7RXP[1bid<F4ThG2
+!i10b 1
+!s85 0
+!s101 -O0

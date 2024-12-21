@@ -1,0 +1,132 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
+
+// DATE "12/13/2021 22:33:20"
+
+// 
+// Device: Altera EP3C16Q240C8 Package PQFP240
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module spead_select (
+	\output ,
+	sw_000,
+	clk_1kHz,
+	clk_1Hz);
+output 	\output ;
+input 	sw_000;
+input 	clk_1kHz;
+input 	clk_1Hz;
+
+// Design Ports Information
+// output	=>  Location: PIN_63,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk_1kHz	=>  Location: PIN_175,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk_1Hz	=>  Location: PIN_9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sw_000	=>  Location: PIN_19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("digital_clock_8_1200mv_85c_v_slow.sdo");
+// synopsys translate_on
+
+wire \clk_1kHz~input_o ;
+wire \output~output_o ;
+wire \sw_000~input_o ;
+wire \clk_1Hz~input_o ;
+wire \inst2|1~combout ;
+
+
+// Location: IOOBUF_X3_Y0_N9
+cycloneiii_io_obuf \output~output (
+	.i(\inst2|1~combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\output~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \output~output .bus_hold = "false";
+defparam \output~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y22_N15
+cycloneiii_io_ibuf \sw_000~input (
+	.i(sw_000),
+	.ibar(gnd),
+	.o(\sw_000~input_o ));
+// synopsys translate_off
+defparam \sw_000~input .bus_hold = "false";
+defparam \sw_000~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y26_N15
+cycloneiii_io_ibuf \clk_1Hz~input (
+	.i(clk_1Hz),
+	.ibar(gnd),
+	.o(\clk_1Hz~input_o ));
+// synopsys translate_off
+defparam \clk_1Hz~input .bus_hold = "false";
+defparam \clk_1Hz~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X3_Y14_N8
+cycloneiii_lcell_comb \inst2|1 (
+// Equation(s):
+// \inst2|1~combout  = (!\sw_000~input_o  & \clk_1Hz~input_o )
+
+	.dataa(gnd),
+	.datab(\sw_000~input_o ),
+	.datac(\clk_1Hz~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\inst2|1~combout ),
+	.cout());
+// synopsys translate_off
+defparam \inst2|1 .lut_mask = 16'h3030;
+defparam \inst2|1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X41_Y25_N15
+cycloneiii_io_ibuf \clk_1kHz~input (
+	.i(clk_1kHz),
+	.ibar(gnd),
+	.o(\clk_1kHz~input_o ));
+// synopsys translate_off
+defparam \clk_1kHz~input .bus_hold = "false";
+defparam \clk_1kHz~input .simulate_z_as = "z";
+// synopsys translate_on
+
+assign \output  = \output~output_o ;
+
+endmodule

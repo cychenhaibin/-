@@ -1,0 +1,244 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "12/20/2020 16:01:04"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    fre_div
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module fre_div_vlg_sample_tst(
+	clk_50mhz,
+	sampler_tx
+);
+input  clk_50mhz;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clk_50mhz)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module fre_div_vlg_check_tst (
+	1hz,
+	1kzh,
+	500hz,
+	sampler_rx
+);
+input  1hz;
+input  1kzh;
+input  500hz;
+input sampler_rx;
+
+reg  1hz_expected;
+reg  1kzh_expected;
+reg  500hz_expected;
+
+reg  1hz_prev;
+reg  1kzh_prev;
+reg  500hz_prev;
+
+reg  1hz_expected_prev;
+reg  1kzh_expected_prev;
+reg  500hz_expected_prev;
+
+reg  last_1hz_exp;
+reg  last_1kzh_exp;
+reg  last_500hz_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:3] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 3'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	1hz_prev = 1hz;
+	1kzh_prev = 1kzh;
+	500hz_prev = 500hz;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	1hz_expected_prev = 1hz_expected;
+	1kzh_expected_prev = 1kzh_expected;
+	500hz_expected_prev = 500hz_expected;
+end
+
+
+
+// expected 1hz
+initial
+begin
+	1hz_expected = 1'bX;
+end 
+
+// expected 1kzh
+initial
+begin
+	1kzh_expected = 1'bX;
+end 
+
+// expected 500hz
+initial
+begin
+	500hz_expected = 1'bX;
+end 
+// generate trigger
+always @(1hz_expected or 1hz or 1kzh_expected or 1kzh or 500hz_expected or 500hz)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected 1hz = %b | expected 1kzh = %b | expected 500hz = %b | ",1hz_expected_prev,1kzh_expected_prev,500hz_expected_prev);
+	$display("| real 1hz = %b | real 1kzh = %b | real 500hz = %b | ",1hz_prev,1kzh_prev,500hz_prev);
+`endif
+	if (
+		( 1hz_expected_prev !== 1'bx ) && ( 1hz_prev !== 1hz_expected_prev )
+		&& ((1hz_expected_prev !== last_1hz_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port 1hz :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", 1hz_expected_prev);
+		$display ("     Real value = %b", 1hz_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_1hz_exp = 1hz_expected_prev;
+	end
+	if (
+		( 1kzh_expected_prev !== 1'bx ) && ( 1kzh_prev !== 1kzh_expected_prev )
+		&& ((1kzh_expected_prev !== last_1kzh_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port 1kzh :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", 1kzh_expected_prev);
+		$display ("     Real value = %b", 1kzh_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_1kzh_exp = 1kzh_expected_prev;
+	end
+	if (
+		( 500hz_expected_prev !== 1'bx ) && ( 500hz_prev !== 500hz_expected_prev )
+		&& ((500hz_expected_prev !== last_500hz_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port 500hz :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", 500hz_expected_prev);
+		$display ("     Real value = %b", 500hz_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_500hz_exp = 500hz_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module fre_div_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk_50mhz;
+// wires                                               
+wire 1hz;
+wire 1kzh;
+wire 500hz;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+fre_div i1 (
+// port map - connection between master ports and signals/registers   
+	.\1hz (1hz),
+	.\1kzh (1kzh),
+	.\500hz (500hz),
+	.clk_50mhz(clk_50mhz)
+);
+
+// clk_50mhz
+initial
+begin
+	clk_50mhz = 1'b1;
+end 
+
+fre_div_vlg_sample_tst tb_sample (
+	.clk_50mhz(clk_50mhz),
+	.sampler_tx(sampler)
+);
+
+fre_div_vlg_check_tst tb_out(
+	.1hz(1hz),
+	.1kzh(1kzh),
+	.500hz(500hz),
+	.sampler_rx(sampler)
+);
+endmodule
+
